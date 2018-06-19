@@ -23,9 +23,5 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase("FFFFFF", ExpectedResult = 40)]
         public int BTgofTwice(string s)
             => CheckoutSolution.Checkout(s);
-
-        [TestCase("AAAAAAAAAAAAAAAEEEBBFFHHFFXXFFGGZZWWEERTYQWE", ExpectedResult = 600)]
-        public int TestCase_ModuloConflict(string s)
-            => CheckoutSolution.Checkout(s);
     }
 }
