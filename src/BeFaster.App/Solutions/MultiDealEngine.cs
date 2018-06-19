@@ -5,7 +5,7 @@ namespace BeFaster.App.Solutions
 {
     public static class MultiDealEngine
     {
-        static List<MultiDeal> deals = new List<MultiDeal>();
+        static List<IMultiDeal> deals = new List<IMultiDeal>();
         private static Dictionary<char, Product> Catalog = new Dictionary<char, Product>();
 
         static MultiDealEngine()
@@ -22,25 +22,25 @@ namespace BeFaster.App.Solutions
             Catalog.Add('E', new Product(40));
         }
 
-        public static List<Tuple<MultiDeal, int>> FindDeals(char[] skus)
+        public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)
         {
-            var foundDeals = new List<Tuple<MultiDeal, int>>();
+            var foundDeals = new List<Tuple<IMultiDeal, int>>();
 
             foreach (var multiDeal in deals)
             {
                 var possibleApplications = multiDeal.CountNumberOfTimesCanBeApplied(skus);
 
                 if(possibleApplications > 0)
-                    foundDeals.Add(new Tuple<MultiDeal, int>(multiDeal, possibleApplications));
+                    foundDeals.Add(new Tuple<IMultiDeal, int>(multiDeal, possibleApplications));
             }
 
             return foundDeals;
         }
 
-        public static List<List<MultiDeal>> ComputeCombinations(List<Tuple<MultiDeal, int>> possibleDeals)
+        public static List<List<IMultiDeal>> ComputeCombinations(List<Tuple<IMultiDeal, int>> possibleDeals)
         {
 
-            return new List<List<MultiDeal>>();
+            return new List<List<IMultiDeal>>();
         }
 
         public static int Apply(char[] productsPurchased)

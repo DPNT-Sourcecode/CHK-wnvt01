@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BeFaster.App.Solutions
 {
-    public class MultiBuyRemovalDeal : MultiDeal
+    public class MultiBuyRemovalDeal : IMultiDeal
     {
         public int AddingQuantity { get; }
         public char AddingCharacter { get; }

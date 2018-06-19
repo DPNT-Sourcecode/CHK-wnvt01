@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Solutions\CheckoutTests.cs" />
+    <Compile Include="Solutions\CombinationTests.cs" />
+    <Compile Include="Solutions\SimpleMultiBuyDealTests.cs" />
     <Compile Include="Solutions\SumSolutionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
