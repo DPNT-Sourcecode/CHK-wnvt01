@@ -49,7 +49,7 @@ namespace BeFaster.App.Solutions
 
             var baseCombination = new List<int>();
 
-            for (int i = 0; i < possibleDeals.Count; i++)
+            for (var i = 0; i < possibleDeals.Count; i++)
             {
                 baseCombination.AddRange(Enumerable.Range(0, possibleDeals[i].Item2).Select(_ => i));
             }
@@ -59,10 +59,10 @@ namespace BeFaster.App.Solutions
             var currentState = baseCombination.ToArray();
             resultSet.Add(currentState.ToList());
 
-            for (int i = 0; i < baseCombination.Count; i++)
+            for (var i = 0; i < baseCombination.Count; i++)
             {
                 currentState = Permute(currentState);
-                resultSet.Add(currentState);
+                resultSet.Add(currentState.ToList());
             }
 
             return resultSet;
@@ -70,7 +70,7 @@ namespace BeFaster.App.Solutions
 
         public static int[] Permute(int[] array)
         {
-
+            throw new NotImplementedException();
         }
 
         public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
