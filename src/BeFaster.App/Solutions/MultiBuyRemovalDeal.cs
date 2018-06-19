@@ -18,12 +18,12 @@ namespace BeFaster.App.Solutions
             RemovesCharacter = removesCharacter;
         }
 
-        public override int CountNumberOfTimesCanBeApplied(char[] characters)
+        public int CountNumberOfTimesCanBeApplied(char[] characters)
         {
             return characters.Count(y => y == AddingCharacter) / AddingQuantity;
         }
 
-        public override Tuple<char[], int> Apply(char[] characters)
+        public Tuple<char[], int> Apply(char[] characters)
         {
             if (characters.Count(y => y == AddingCharacter) < AddingQuantity || characters.Count(y => y == RemovesCharacter) < RemovesQuantity)
                 return new Tuple<char[], int>(characters, 0);

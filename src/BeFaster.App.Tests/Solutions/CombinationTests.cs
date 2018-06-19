@@ -31,6 +31,8 @@ namespace BeFaster.App.Tests.Solutions
             testCase.Add(new Tuple<IMultiDeal, int>(new MockMultiDeal(), 2));
 
             var combinations = MultiDealEngine.ComputeCombinations(testCase);
+
+            Assert.AreEqual(1, combinations.Count);
         }
     }
 }

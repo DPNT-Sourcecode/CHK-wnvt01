@@ -42,10 +42,12 @@ namespace BeFaster.App.Solutions
         {
             //if only one deal can be applied, just appliy it as many times as possible.
             if (possibleDeals.Count == 1)
-                return new List < List < IMultiDeal >>
+                return new List <List<IMultiDeal>>
                 {
                     Enumerable.Range(0, possibleDeals[0].Item2).Select(x => possibleDeals[0].Item1).ToList()
                 };
+
+
 
 
             return new List<List<IMultiDeal>>();
