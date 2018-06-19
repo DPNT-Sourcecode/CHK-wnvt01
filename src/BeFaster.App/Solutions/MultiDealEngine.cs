@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BeFaster.App.Solutions
 {
@@ -76,7 +77,11 @@ namespace BeFaster.App.Solutions
                     {
                         Swap(state[j], j, currentState);
                     }
-                    resultSet.Add(currentState.ToList());
+
+                    var possible = currentState.ToList();
+                    if(!resultSet.Any(x => new IntArrayComparison().Equals(x, currentState.ToList())))
+                        resultSet.Add(possible);
+
                     state[j] += 1;
                     j = 0;
                 }
@@ -87,7 +92,7 @@ namespace BeFaster.App.Solutions
                 }
             } while (j < baseCombination.Count);
 
-            return resultSet.Distinct(x => new IntArrayComparison()).ToList();
+            return resultSet.ToList();
         }
 
         public static void Swap(int l, int r, int[] array)
