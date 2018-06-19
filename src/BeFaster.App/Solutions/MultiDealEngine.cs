@@ -17,11 +17,14 @@ namespace BeFaster.App.Solutions
             Catalog.Add('C', new Product(20));
             Catalog.Add('D', new Product(15));
             Catalog.Add('E', new Product(40));
+            Catalog.Add('F', new Product(10));
 
             deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B', 2 * Catalog['E'].Price));
+            deals.Add(new MultiBuyRemovalDeal(2, 'F', 1, 'F', 2 * Catalog['F'].Price));
+
         }
 
         public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)

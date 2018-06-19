@@ -15,6 +15,15 @@ namespace BeFaster.App.Tests.Solutions
         public int RookieMistake(string s)
             => CheckoutSolution.Checkout(s);
 
+        [TestCase("FFF", ExpectedResult = 20)]
+        public int BOGOFTest(string s)
+            => CheckoutSolution.Checkout(s);
+
+
+        [TestCase("FFFFFF", ExpectedResult = 40)]
+        public int BogofTwice(string s)
+            => CheckoutSolution.Checkout(s);
+
         [TestCase("AAAAAAAAAAAAAAA", ExpectedResult = 600)]
         public int TestCase_ModuloConflict(string s)
             => CheckoutSolution.Checkout(s);
