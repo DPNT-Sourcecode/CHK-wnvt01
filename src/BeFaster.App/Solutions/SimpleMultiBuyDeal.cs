@@ -7,7 +7,7 @@ namespace BeFaster.App.Solutions
     {
         public SimpleMultiBuyDeal(int quantity, int price, char character)
         {
-            FindDealFunc = x => x.Count(y => y == character) / quantity;
+            CountNumberOfTimesCanBeApplied = x => x.Count(y => y == character) / quantity;
             Apply = x =>
             {
                 if (x.Count(y => y == character) < quantity)

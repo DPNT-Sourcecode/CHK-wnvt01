@@ -26,7 +26,7 @@ namespace BeFaster.App.Tests.Solutions
 
             var testData = "AAAA".ToCharArray();
 
-            var count = testObj.FindDealFunc(testData);
+            var count = testObj.CountNumberOfTimesCanBeApplied(testData);
 
             Assert.AreEqual(1, count);
         }
@@ -77,7 +77,7 @@ namespace BeFaster.App.Tests.Solutions
 
             var testData = "AA".ToCharArray();
 
-            var count = testObj.FindDealFunc(testData);
+            var count = testObj.CountNumberOfTimesCanBeApplied(testData);
 
             Assert.AreEqual(0, count);
         }

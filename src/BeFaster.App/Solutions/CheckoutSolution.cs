@@ -5,12 +5,6 @@ using BeFaster.Runner.Exceptions;
 
 namespace BeFaster.App.Solutions
 {
-    public class MultiDeal
-    {
-        public Func<char[], int> FindDealFunc;
-        public Func<char[], Tuple<char[], int>> Apply;
-    }
-
     public static class MultiDealEngine
     {
         static List<MultiDeal> deals = new List<MultiDeal>();
