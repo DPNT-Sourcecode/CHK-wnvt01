@@ -1,59 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BeFaster.Runner.Exceptions;
 
 namespace BeFaster.App.Solutions
 {
-    public static class ProductPricing
-    {
-        
-    }
-
-    public class Product
-    {
-        public decimal Price { get; }
-        public MultiBuy Deal { get; }
-
-        public decimal MultiBuyFunc(int quantity)
-        {
-            if (Deal == null)
-                return Price * quantity;
-
-            var numberOfDeals = quantity / Deal.Quantity;
-            var remainder = quantity % Deal.Quantity;
-
-            return numberOfDeals * Deal.Price + remainder * Price;
-        }
-
-        public Product(decimal price, MultiBuy multiBuyDeal = null)
-        {
-            Price = price;
-            Deal = multiBuyDeal;
-        }
-    }
-
-    public class MultiBuy
-    {
-        public int Quantity { get; }
-        public decimal Price { get; }
-
-        public MultiBuy(int quantity, decimal price)
-        {
-            Quantity = quantity;
-            Price = price;
-        }
-    }
-
     public static class CheckoutSolution
     {
-        
+        private static Dictionary<string, Product> Catalog;
 
+        static CheckoutSolution()
+        {
+            Catalog = new Dictionary<string, Product>();
+
+            Catalog.Add("A", new Product(50, new MultiBuy(3, 130)));
+            Catalog.Add("B", new Product(30, new MultiBuy(2, 45)));
+            Catalog.Add("C", new Product(20));
+            Catalog.Add("D", new Product(15));
+        }
 
         public static int Checkout(string skus)
         {
-            var delimiters = new[] {","};
+            try
+            {
+                var delimiters = new[] {","};
 
-            var productsPurchased = skus.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                var productsPurchased = skus.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
 
+                var distinctProducts = productsPurchased.Distinct();
+
+                var total = 0;
+
+                foreach (var distinctProduct in distinctProducts)
+                {
+                    var numOfProduct = productsPurchased.Count(x => x == distinctProduct);
+                    total += Catalog[distinctProduct].PriceQuantity(numOfProduct);
+                }
+
+                return total;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
     }
 }

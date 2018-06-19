@@ -5,7 +5,7 @@
         public int Price { get; }
         public MultiBuy Deal { get; }
 
-        public int MultiBuyFunc(int quantity)
+        public int PriceQuantity(int quantity)
         {
             if (Deal == null)
                 return Price * quantity;
