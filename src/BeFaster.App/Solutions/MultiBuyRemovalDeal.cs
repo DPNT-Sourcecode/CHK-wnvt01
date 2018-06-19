@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BeFaster.App.Solutions
 {
@@ -19,7 +20,7 @@ namespace BeFaster.App.Solutions
 
         public override int CountNumberOfTimesCanBeApplied(char[] characters)
         {
-            throw new NotImplementedException();
+            return Math.Min(characters.Count(y => y == AddingCharacter) / AddingQuantity, characters.Count(y => y == RemovesCharacter) / RemovesQuantity);
         }
 
         public override Tuple<char[], int> Apply(char[] characters)
