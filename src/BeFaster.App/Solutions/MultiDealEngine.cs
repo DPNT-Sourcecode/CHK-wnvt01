@@ -54,8 +54,23 @@ namespace BeFaster.App.Solutions
                 baseCombination.AddRange(Enumerable.Range(0, possibleDeals[i].Item2).Select(_ => i));
             }
 
+            var resultSet = new List<List<int>>();
 
-            return new List<List<int>>();
+            var currentState = baseCombination.ToArray();
+            resultSet.Add(currentState.ToList());
+
+            for (int i = 0; i < baseCombination.Count; i++)
+            {
+                currentState = Permute(currentState);
+                resultSet.Add(currentState);
+            }
+
+            return resultSet;
+        }
+
+        public static int[] Permute(int[] array)
+        {
+
         }
 
         public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
