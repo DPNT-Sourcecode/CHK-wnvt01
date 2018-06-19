@@ -45,9 +45,6 @@ namespace BeFaster.App.Tests.Solutions
             var combinations = MultiDealEngine.ComputeCombinations(testCase);
 
             //AAB BAA AB
-            //CAB ACB BCA CBA
-
-            Assert.AreEqual(1, combinations.Count);
         }
 
     }

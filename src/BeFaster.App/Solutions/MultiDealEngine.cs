@@ -70,14 +70,15 @@ namespace BeFaster.App.Solutions
                 {
                     if (j % 2 == 0)
                     {
-
-                        resultSet.Add(currentState.ToList());
+                        Swap(0, j, currentState);
                     }
                     else
                     {
-
+                        Swap(state[j], j, currentState);
                     }
-
+                    resultSet.Add(currentState.ToList());
+                    state[j] += 1;
+                    j = 0;
                 }
                 else
                 {
