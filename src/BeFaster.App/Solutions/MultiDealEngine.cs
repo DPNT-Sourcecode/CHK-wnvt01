@@ -58,7 +58,23 @@ namespace BeFaster.App.Solutions
 
         public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
         {
-            throw new NotImplementedException();
+            char[] caseProducts = new char[productsPurchased.Length];
+            productsPurchased.CopyTo(caseProducts, 0);
+            var total = 0;
+
+            foreach (var dealIndex in dealIndexes)
+            {
+                var res = deals[dealIndex].Item1.Apply(productsPurchased);
+                caseProducts = res.Item1;
+                total += res.Item2;
+            }
+
+            foreach (var product in caseProducts)
+            {
+                
+            }
+
+            return total;
         }
     }
 }
