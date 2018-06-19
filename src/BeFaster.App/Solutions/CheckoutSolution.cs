@@ -10,17 +10,36 @@ namespace BeFaster.App.Solutions
 
     public class Product
     {
-        public int Price { get; }
-        public Func<int, int> MultiBuyFunc { get; }
+        public decimal Price { get; }
+        public MultiBuy Deal { get; }
 
-        public Product(int price, Func<int, int> multiBuyFunc = null)
+        public decimal MultiBuyFunc(int quantity)
+        {
+            if (Deal == null)
+                return Price * quantity;
+
+            var numberOfDeals = quantity / Deal.Quantity;
+            var remainder = quantity % Deal.Quantity;
+
+            return numberOfDeals * Deal.Price + remainder * Price;
+        }
+
+        public Product(decimal price, MultiBuy multiBuyDeal = null)
         {
             Price = price;
+            Deal = multiBuyDeal;
+        }
+    }
 
-            if(multiBuyFunc == null)
-                MultiBuyFunc = x => price*x;
-            else
-                MultiBuyFunc = multiBuyFunc;
+    public class MultiBuy
+    {
+        public int Quantity { get; }
+        public decimal Price { get; }
+
+        public MultiBuy(int quantity, decimal price)
+        {
+            Quantity = quantity;
+            Price = price;
         }
     }
 
