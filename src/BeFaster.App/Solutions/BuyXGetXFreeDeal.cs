@@ -33,7 +33,7 @@ namespace BeFaster.App.Solutions
                 .Where(y => y == Character).Skip(AddingQuantity + RemovesQuantity).ToArray();
 
             var resultingObject = characters.Where(y => y != Character)
-                .Concat(remainingDealTriggers).Concat(remainingDealTriggers).OrderBy(y => y).ToArray();
+                .Concat(remainingDealTriggers).OrderBy(y => y).ToArray();
 
             return new Tuple<char[], int>(resultingObject, Price);
         }

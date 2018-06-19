@@ -125,5 +125,18 @@ namespace BeFaster.App.Tests.Solutions
 
             Assert.AreEqual(10, result.Item2);
         }
+
+        [Test]
+        public void TestShouldRemoveAllObjectsTwice()
+        {
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+
+            var testData = "AAAAAA".ToCharArray();
+
+            var result = testObj.Apply(testData);
+            result = testObj.Apply(result.Item1);
+
+            Assert.AreEqual(0, result.Item1.Length);
+        }
     }
 }
