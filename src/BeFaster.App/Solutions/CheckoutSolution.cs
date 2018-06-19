@@ -7,20 +7,36 @@ namespace BeFaster.App.Solutions
 {
     public class MultiDeal
     {
-        public Func<bool, IEnumerable<char>> FindDealFunc;
+        public Func<char[], int> FindDealFunc;
 
-        public IEnumerable<MultiDeal> Conflicts;
+        public Func<char[], Tuple<char[], int>> Apply;
+    }
 
-        public Func<IEnumerable<char>, Tuple<IEnumerable<char>, int>> Apply;
+    public class SimpleMultiBuyDeal : MultiDeal
+    {
+        public SimpleMultiBuyDeal(int quantity, int price, char character)
+        {
+            FindDealFunc = x => x.Count(y => y == character) / quantity;
+            Apply = x =>
+            {
+                if (x.Count(y => y == character) < quantity)
+                    return new Tuple<char[], int>(x, 0);
+
+                var remainingAs = x.Where(y => y == character).Skip(quantity).ToArray();
+                var resultingObject = x.Where(y => y != character).Concat(remainingAs).OrderBy(y => y).ToArray();
+
+                return new Tuple<char[], int>(resultingObject, price);
+            };
+        }
     }
 
     public static class MultiDealEngine
     {
-        List<MultiDeal> deals = new List<MultiDeal>();
+        static List<MultiDeal> deals = new List<MultiDeal>();
 
         static MultiDealEngine()
         {
-            
+            deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
         }
     }
 
@@ -45,20 +61,9 @@ namespace BeFaster.App.Solutions
         {
             try
             {
-                var productsPurchased = skus.ToCharArray();
-
-                var distinctProducts = productsPurchased.Distinct();
+                var productsPurchased = skus.ToCharArray().OrderBy(x => x).ToArray();
 
                 var total = 0;
-
-
-                foreach (var distinctProduct in distinctProducts)
-                {
-                    var numOfProduct = productsPurchased.Count(x => x == distinctProduct);
-
-
-
-                }
 
                 return total;
             }
