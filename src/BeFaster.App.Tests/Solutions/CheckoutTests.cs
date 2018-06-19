@@ -23,5 +23,10 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase("FFFFFF", ExpectedResult = 40)]
         public int BTgofTwice(string s)
             => CheckoutSolution.Checkout(s);
+
+
+        [TestCase("AAAAAAAA", ExpectedResult = 330)]
+        public int RepeatedManyOffers(string s)
+            => CheckoutSolution.Checkout(s);
     }
 }
