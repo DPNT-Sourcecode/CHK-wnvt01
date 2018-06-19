@@ -11,6 +11,10 @@ namespace BeFaster.App.Tests.Solutions
             => CheckoutSolution.Checkout(s);
 
 
+        [TestCase("A", ExpectedResult = 50)]
+        public int RookieMistake(string s)
+            => CheckoutSolution.Checkout(s);
+
         [TestCase("AAAAAAAAAAAAAAA", ExpectedResult = 600)]
         public int TestCase_ModuloConflict(string s)
             => CheckoutSolution.Checkout(s);

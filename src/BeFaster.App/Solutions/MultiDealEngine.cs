@@ -41,6 +41,8 @@ namespace BeFaster.App.Solutions
 
         public static List<List<int>> ComputeCombinations(List<Tuple<IMultiDeal, int>> possibleDeals)
         {
+            if(possibleDeals.Count == 0)
+                return new List<List<int>>();
             //if only one deal can be applied, just appliy it as many times as possible.
             if (possibleDeals.Count == 1)
                 return new List<List<int>>
