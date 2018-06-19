@@ -55,5 +55,31 @@ namespace BeFaster.App.Tests.Solutions
 
             Assert.AreEqual(130, result.Item2);
         }
+
+
+        [Test]
+        public void TestCaseShouldReturnZeroAndUneditied()
+        {
+            var testObj = new SimpleMultiBuyDeal(3, 130, 'A');
+
+            var testData = "AA".ToCharArray();
+
+            var result = testObj.Apply(testData);
+
+            Assert.AreEqual("AA", new string(result.Item1));
+            Assert.AreEqual(0, result.Item2);
+        }
+
+        [Test]
+        public void TestCaseShouldReturnNoDealFound()
+        {
+            var testObj = new SimpleMultiBuyDeal(3, 130, 'A');
+
+            var testData = "AA".ToCharArray();
+
+            var count = testObj.FindDealFunc(testData);
+
+            Assert.AreEqual(0, count);
+        }
     }
 }

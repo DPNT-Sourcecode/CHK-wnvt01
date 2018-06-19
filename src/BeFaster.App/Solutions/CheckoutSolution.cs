@@ -8,7 +8,6 @@ namespace BeFaster.App.Solutions
     public class MultiDeal
     {
         public Func<char[], int> FindDealFunc;
-
         public Func<char[], Tuple<char[], int>> Apply;
     }
 
@@ -19,13 +18,15 @@ namespace BeFaster.App.Solutions
         static MultiDealEngine()
         {
             deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
+            deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
+            deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
+            deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B'));
         }
     }
 
     public static class CheckoutSolution
     {
         private static Dictionary<char, Product> Catalog;
-        private static Dictionary<char, Func<string, IEnumerable<string>, int>> dealMapFunctions;
 
         static CheckoutSolution()
         {
