@@ -9,14 +9,17 @@ namespace BeFaster.App.Solutions
         public char AddingCharacter { get; }
         public int RemovesQuantity { get; }
         public char RemovesCharacter { get; }
+        public int Price { get; }
 
-        public MultiBuyRemovalDeal(int addingQuantity, char addingCharacter, int removesQuantity, char removesCharacter)
+        public MultiBuyRemovalDeal(int addingQuantity, char addingCharacter, int removesQuantity, char removesCharacter, int price)
         {
             AddingQuantity = addingQuantity;
             AddingCharacter = addingCharacter;
             RemovesQuantity = removesQuantity;
             RemovesCharacter = removesCharacter;
+            Price = price;
         }
+
 
         public int CountNumberOfTimesCanBeApplied(char[] characters)
         {
@@ -36,7 +39,7 @@ namespace BeFaster.App.Solutions
             var resultingObject = characters.Where(y => y != AddingCharacter && y != RemovesCharacter)
                 .Concat(remainingDealRemovals).Concat(remainingDealTriggers).OrderBy(y => y).ToArray();
 
-            return new Tuple<char[], int>(resultingObject, 0);
+            return new Tuple<char[], int>(resultingObject, Price);
         }
     }
 }
