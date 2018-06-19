@@ -20,12 +20,23 @@ namespace BeFaster.App.Solutions
 
         public override int CountNumberOfTimesCanBeApplied(char[] characters)
         {
-            return Math.Min(characters.Count(y => y == AddingCharacter) / AddingQuantity, characters.Count(y => y == RemovesCharacter) / RemovesQuantity);
+            return characters.Count(y => y == AddingCharacter) / AddingQuantity;
         }
 
         public override Tuple<char[], int> Apply(char[] characters)
         {
-            throw new NotImplementedException();
+            if (characters.Count(y => y == AddingCharacter) < AddingQuantity || characters.Count(y => y == RemovesCharacter) < RemovesQuantity)
+                return new Tuple<char[], int>(characters, 0);
+
+            var remainingDealTriggers = characters
+                .Where(y => y == AddingCharacter).Skip(AddingQuantity).ToArray();
+            var remainingDealRemovals = characters
+                .Where(y => y == RemovesCharacter).Skip(RemovesQuantity).ToArray();
+
+            var resultingObject = characters.Where(y => y != AddingCharacter && y != RemovesCharacter)
+                .Concat(remainingDealRemovals).Concat(remainingDealTriggers).OrderBy(y => y).ToArray();
+
+            return new Tuple<char[], int>(resultingObject, 0);
         }
     }
 }
