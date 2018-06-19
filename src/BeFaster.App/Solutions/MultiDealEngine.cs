@@ -21,7 +21,8 @@ namespace BeFaster.App.Solutions
             Catalog.Add('G', new Product(20));
             Catalog.Add('H', new Product(10));
             Catalog.Add('I', new Product(35));
-            Catalog.Add('j', new Product(60));
+            Catalog.Add('J', new Product(60));
+            Catalog.Add('K', new Product(80));
             Catalog.Add('L', new Product(90));
             Catalog.Add('M', new Product(15));
             Catalog.Add('N', new Product(40));
