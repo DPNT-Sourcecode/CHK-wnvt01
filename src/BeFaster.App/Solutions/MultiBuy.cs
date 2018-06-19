@@ -3,9 +3,9 @@
     public class MultiBuy
     {
         public int Quantity { get; }
-        public decimal Price { get; }
+        public int Price { get; }
 
-        public MultiBuy(int quantity, decimal price)
+        public MultiBuy(int quantity, int price)
         {
             Quantity = quantity;
             Price = price;

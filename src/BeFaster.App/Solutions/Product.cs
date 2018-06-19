@@ -2,10 +2,10 @@
 {
     public class Product
     {
-        public decimal Price { get; }
+        public int Price { get; }
         public MultiBuy Deal { get; }
 
-        public decimal MultiBuyFunc(int quantity)
+        public int MultiBuyFunc(int quantity)
         {
             if (Deal == null)
                 return Price * quantity;
@@ -16,7 +16,7 @@
             return numberOfDeals * Deal.Price + remainder * Price;
         }
 
-        public Product(decimal price, MultiBuy multiBuyDeal = null)
+        public Product(int price, MultiBuy multiBuyDeal = null)
         {
             Price = price;
             Deal = multiBuyDeal;
