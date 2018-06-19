@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solutions\MultiBuyRemovalDeal.cs" />
     <Compile Include="Solutions\MultiDeal.cs" />
+    <Compile Include="Solutions\MultiDealEngine.cs" />
     <Compile Include="Solutions\Product.cs" />
     <Compile Include="Solutions\SimpleMultiBuyDeal.cs" />
     <Compile Include="Solutions\SumSolution.cs" />
