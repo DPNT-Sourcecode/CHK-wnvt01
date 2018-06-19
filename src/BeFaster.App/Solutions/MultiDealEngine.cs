@@ -59,29 +59,35 @@ namespace BeFaster.App.Solutions
             var currentState = baseCombination.ToArray();
             resultSet.Add(currentState.ToList());
 
+            //heaps algorithm -- non-recursive
+            var state = Enumerable.Range(0, baseCombination.Count).Select(_ => 0).ToArray();
             for (var i = 0; i < baseCombination.Count; i++)
             {
-                currentState = Permute(currentState);
-                resultSet.Add(currentState.ToList());
+                if (state[i] < i)
+                {
+                    currentState = Permute(currentState, state, i);
+                    resultSet.Add(currentState.ToList());
+                }
+ 
             }
 
             return resultSet;
         }
 
-        public static int[] Permute(int[] array)
+        public static int[] Permute(int[] array, int[] state, int i)
         {
             throw new NotImplementedException();
         }
 
-        public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
+        public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> availableDeals, char[] productsPurchased)
         {
-            char[] caseProducts = new char[productsPurchased.Length];
+            var caseProducts = new char[productsPurchased.Length];
             productsPurchased.CopyTo(caseProducts, 0);
             var total = 0;
 
             foreach (var dealIndex in dealIndexes)
             {
-                var res = deals[dealIndex].Item1.Apply(productsPurchased);
+                var res = availableDeals[dealIndex].Item1.Apply(productsPurchased);
                 caseProducts = res.Item1;
                 total += res.Item2;
             }
