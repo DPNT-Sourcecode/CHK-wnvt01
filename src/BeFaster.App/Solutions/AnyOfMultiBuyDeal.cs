@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BeFaster.App.Solutions
@@ -20,13 +21,12 @@ namespace BeFaster.App.Solutions
         {
             var saving = 0;
 
-            int i = 0;
-
-            int[] buffer = new int[3];
+            List<int> savings = new List<int>();
 
             foreach (var product in Products)
             {
-                
+                var numberOfProduct = characters.Count(x => x == product);
+                savings.AddRange(Enumerable.Repeat(MultiDealEngine.Catalog[product].Price, numberOfProduct));
             }
 
             return saving;
