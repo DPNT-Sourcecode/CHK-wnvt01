@@ -111,8 +111,7 @@ namespace BeFaster.App.Solutions
                     }
 
                     var possible = currentState.ToList();
-                    if(!resultSet.Any(x => new IntListComparison().Equals(x, currentState.ToList())))
-                        resultSet.Add(possible);
+                    resultSet.Add(possible);
 
                     state[j] += 1;
                     j = 0;
