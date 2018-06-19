@@ -21,13 +21,26 @@ namespace BeFaster.App.Solutions
         {
             var saving = 0;
 
-            List<int> savings = new List<int>();
+            List<int> prices = new List<int>();
 
             foreach (var product in Products)
             {
                 var numberOfProduct = characters.Count(x => x == product);
-                savings.AddRange(Enumerable.Repeat(MultiDealEngine.Catalog[product].Price, numberOfProduct));
+                prices.AddRange(Enumerable.Repeat(MultiDealEngine.Catalog[product].Price, numberOfProduct));
             }
+
+            if (prices.Count < 3)
+                return 0;
+
+            var i = 0;
+            do
+            {
+                var runningPrice = prices[i++];
+                runningPrice += prices[i++];
+                runningPrice += prices[i++];
+                saving = runningPrice - Price;
+            } while (i + 2 < prices.Count);
+
 
             return saving;
         }
