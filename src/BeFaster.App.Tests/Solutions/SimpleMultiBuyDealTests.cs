@@ -97,4 +97,33 @@ namespace BeFaster.App.Tests.Solutions
             Assert.AreEqual(10, result.Item2);
         }
     }
+
+
+    [TestFixture]
+    public class BuyXGetXTests
+    {
+        [Test]
+        public void TestShouldRemoveAllObjects()
+        {
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+
+            var testData = "AAA".ToCharArray();
+
+            var result = testObj.Apply(testData);
+
+            Assert.AreEqual(0, result.Item1.Length);
+        }
+
+        [Test]
+        public void TestShouldStillPriceMultiBuyDeal()
+        {
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+
+            var testData = "AAA".ToCharArray();
+
+            var result = testObj.Apply(testData);
+
+            Assert.AreEqual(10, result.Item2);
+        }
+    }
 }

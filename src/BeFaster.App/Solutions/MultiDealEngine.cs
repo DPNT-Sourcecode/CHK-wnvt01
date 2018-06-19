@@ -23,8 +23,7 @@ namespace BeFaster.App.Solutions
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B', 2 * Catalog['E'].Price));
-            deals.Add(new MultiBuyRemovalDeal(2, 'F', 1, 'F', 2 * Catalog['F'].Price));
-
+            deals.Add(new BuyXGetXFreeDeal('F', 2, 1, 2 * Catalog['F'].Price));
         }
 
         public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)
