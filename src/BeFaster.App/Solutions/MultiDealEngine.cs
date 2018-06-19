@@ -55,6 +55,7 @@ namespace BeFaster.App.Solutions
             deals.Add(new BuyXGetXFreeDeal('U', 3, 1));
             deals.Add(new SimpleMultiBuyDeal(2, 90, 'V'));
             deals.Add(new SimpleMultiBuyDeal(3, 130, 'V'));
+            deals.Add(new AnyOfMultiBuyDeal(3, 'S','T','X','Y','Z'));
         }
 
         public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)
@@ -197,5 +198,25 @@ namespace BeFaster.App.Solutions
 
             return total;
         }
+    }
+
+    public class AnyOfMultiBuyDeal : IMultiDeal
+    {
+        public AnyOfMultiBuyDeal(int i, char c, char c1, char c2, char c3, char c4)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CountNumberOfTimesCanBeApplied(char[] characters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Tuple<char[], int> Apply(char[] characters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Saving { get; }
     }
 }
