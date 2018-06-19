@@ -38,22 +38,25 @@ namespace BeFaster.App.Solutions
             return foundDeals;
         }
 
-        public static List<List<IMultiDeal>> ComputeCombinations(List<Tuple<IMultiDeal, int>> possibleDeals)
+        public static List<List<int>> ComputeCombinations(List<Tuple<IMultiDeal, int>> possibleDeals)
         {
             //if only one deal can be applied, just appliy it as many times as possible.
             if (possibleDeals.Count == 1)
-                return new List <List<IMultiDeal>>
+                return new List <List<int>>
                 {
-                    Enumerable.Range(0, possibleDeals[0].Item2).Select(x => possibleDeals[0].Item1).ToList()
+                    Enumerable.Range(0, possibleDeals[0].Item2).Select(x => 0).ToList()
                 };
 
-
+            for (int i = 0; i < possibleDeals.Count; i++)
+            {
+                
+            }
 
 
             return new List<List<IMultiDeal>>();
         }
 
-        public static int Apply(char[] productsPurchased)
+        public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
         {
             throw new NotImplementedException();
         }

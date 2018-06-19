@@ -14,7 +14,7 @@ namespace BeFaster.App.Solutions
                 var productsPurchased = skus.ToCharArray().OrderBy(x => x).ToArray();
                 var foundPossibleDeals = MultiDealEngine.FindDeals(productsPurchased);
                 var combinations = MultiDealEngine.ComputeCombinations(foundPossibleDeals);
-                return combinations.Select(x => MultiDealEngine.Apply(productsPurchased)).AsParallel().Min();
+                return combinations.Select(x => MultiDealEngine.Apply(x, foundPossibleDeals, productsPurchased)).AsParallel().Min();
             }
             catch (Exception)
             {
