@@ -22,7 +22,7 @@ namespace BeFaster.App.Solutions
             Catalog.Add('H', new Product(10));
             Catalog.Add('I', new Product(35));
             Catalog.Add('J', new Product(60));
-            Catalog.Add('K', new Product(80));
+            Catalog.Add('K', new Product(70));
             Catalog.Add('L', new Product(90));
             Catalog.Add('M', new Product(15));
             Catalog.Add('N', new Product(40));
@@ -30,16 +30,15 @@ namespace BeFaster.App.Solutions
             Catalog.Add('P', new Product(50));
             Catalog.Add('Q', new Product(30));
             Catalog.Add('R', new Product(50));
-            Catalog.Add('S', new Product(30));
+            Catalog.Add('S', new Product(20));
             Catalog.Add('T', new Product(20));
             Catalog.Add('U', new Product(40));
             Catalog.Add('V', new Product(50));
             Catalog.Add('W', new Product(20));
-            Catalog.Add('X', new Product(90));
-            Catalog.Add('Y', new Product(10));
-            Catalog.Add('Z', new Product(50));
-
-
+            Catalog.Add('X', new Product(17));
+            Catalog.Add('Y', new Product(20));
+            Catalog.Add('Z', new Product(21));
+            
             deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
@@ -47,7 +46,7 @@ namespace BeFaster.App.Solutions
             deals.Add(new BuyXGetXFreeDeal('F', 2, 1));
             deals.Add(new SimpleMultiBuyDeal(5, 45, 'H'));
             deals.Add(new SimpleMultiBuyDeal(10, 80, 'H'));
-            deals.Add(new SimpleMultiBuyDeal(2, 150, 'K'));
+            deals.Add(new SimpleMultiBuyDeal(2, 120, 'K'));
             deals.Add(new MultiBuyRemovalDeal(3, 'N', 1, 'M'));
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'P'));
             deals.Add(new SimpleMultiBuyDeal(3, 80, 'Q'));
