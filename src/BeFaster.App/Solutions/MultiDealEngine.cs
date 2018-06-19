@@ -81,7 +81,7 @@ namespace BeFaster.App.Solutions
                     }
 
                     var possible = currentState.ToList();
-                    if(!resultSet.Any(x => new IntArrayComparison().Equals(x, currentState.ToList())))
+                    if(!resultSet.Any(x => new IntListComparison().Equals(x, currentState.ToList())))
                         resultSet.Add(possible);
 
                     state[j] += 1;
@@ -125,24 +125,17 @@ namespace BeFaster.App.Solutions
 
             return total;
         }
-    }
 
-    public class IntArrayComparison : IEqualityComparer<List<int>>
-    {
-        public bool Equals(List<int> x, List<int> y)
+        public static int SimplePricing(char[] productsPurchased)
         {
-            for (var i = 0; i < x.Count; i++)
+            var total = 0;
+
+            foreach (var product in productsPurchased)
             {
-                if (x[i] != y[i])
-                    return false;
+                total += Catalog[product].Price;
             }
 
-            return true;
-        }
-
-        public int GetHashCode(List<int> obj)
-        {
-            return obj.GetHashCode();
+            return total;
         }
     }
 }
