@@ -6,7 +6,7 @@ namespace BeFaster.App.Tests.Solutions
     [TestFixture]
     class CheckoutTests
     {
-        [TestCase("BBEEEE", ExpectedResult = 80)]
+        [TestCase("BBEEEE", ExpectedResult = 160)]
         public int TestCase_AllBAreFree(string s)
             => CheckoutSolution.Checkout(s);
 

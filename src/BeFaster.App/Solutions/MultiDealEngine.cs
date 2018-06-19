@@ -12,16 +12,16 @@ namespace BeFaster.App.Solutions
 
         static MultiDealEngine()
         {
-            deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
-            deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
-            deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
-            deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B', 40));
-
             Catalog.Add('A', new Product(50));
             Catalog.Add('B', new Product(30));
             Catalog.Add('C', new Product(20));
             Catalog.Add('D', new Product(15));
             Catalog.Add('E', new Product(40));
+
+            deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
+            deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
+            deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
+            deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B', 2 * Catalog['E'].Price));
         }
 
         public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)
