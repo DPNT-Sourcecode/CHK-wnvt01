@@ -29,7 +29,7 @@ namespace BeFaster.App.Solutions
                 prices.AddRange(Enumerable.Repeat(MultiDealEngine.Catalog[product].Price, numberOfProduct));
             }
 
-            if (prices.Count < 3)
+            if (prices.Count < NumberRequired)
                 return 0;
 
             var i = 0;
@@ -49,28 +49,26 @@ namespace BeFaster.App.Solutions
 
         public Tuple<char[], int> Apply(char[] characters)
         {
-            List<char> prices = new List<char>();
+            List<char> dealCharacters = new List<char>();
 
             foreach (var product in Products)
             {
                 var numberOfProduct = characters.Count(x => x == product);
-                prices.AddRange(Enumerable.Repeat(product, numberOfProduct));
-
+                dealCharacters.AddRange(Enumerable.Repeat(product, numberOfProduct));
             }
 
-            if (prices.Count < NumberRequired)
+            if (dealCharacters.Count < NumberRequired)
                 return new Tuple<char[], int>(characters, 0);
 
             var caseCharacters = characters.ToArray();
 
             for (int i = 0; i < NumberRequired; i++)
             {
-                caseCharacters.Where(x => x == prices[i])
-
+                var remainingAfterDeal = caseCharacters.Where(y => y == dealCharacters[i]).Skip(1).ToArray();
+                caseCharacters = characters.Where(y => y != dealCharacters[i]).Concat(remainingAfterDeal).OrderBy(y => y).ToArray();
             }
 
-
-
+            return new Tuple<char[], int>(caseCharacters, Price);
         }
 
         public int Saving { get; }
