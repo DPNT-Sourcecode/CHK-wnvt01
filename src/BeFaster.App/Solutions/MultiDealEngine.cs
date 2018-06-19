@@ -70,7 +70,7 @@ namespace BeFaster.App.Solutions
                 {
                     if (j % 2 == 0)
                     {
-                        currentState = Permute(currentState, state, j);
+
                         resultSet.Add(currentState.ToList());
                     }
                     else
@@ -89,9 +89,12 @@ namespace BeFaster.App.Solutions
             return resultSet;
         }
 
-        public static int[] Permute(int[] array, int[] state, int i)
+        public static void Swap(int l, int r, int[] array)
         {
-            throw new NotImplementedException();
+            var oldL = array[l];
+
+            array[l] = array[r];
+            array[r] = oldL;
         }
 
         public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> availableDeals, char[] productsPurchased)
