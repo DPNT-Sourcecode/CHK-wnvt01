@@ -42,10 +42,12 @@ namespace BeFaster.App.Solutions
         {
             //if only one deal can be applied, just appliy it as many times as possible.
             if (possibleDeals.Count == 1)
-                return new List <List<int>>
+                return new List<List<int>>
                 {
                     Enumerable.Range(0, possibleDeals[0].Item2).Select(x => 0).ToList()
                 };
+
+            
 
             for (int i = 0; i < possibleDeals.Count; i++)
             {
@@ -53,7 +55,7 @@ namespace BeFaster.App.Solutions
             }
 
 
-            return new List<List<IMultiDeal>>();
+            return new List<List<int>>();
         }
 
         public static int Apply(List<int> dealIndexes, List<Tuple<IMultiDeal,int>> deals, char[] productsPurchased)
@@ -71,7 +73,7 @@ namespace BeFaster.App.Solutions
 
             foreach (var product in caseProducts)
             {
-                
+                total += Catalog[product].Price;
             }
 
             return total;

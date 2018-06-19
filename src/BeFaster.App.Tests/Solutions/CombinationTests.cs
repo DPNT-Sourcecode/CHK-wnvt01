@@ -34,5 +34,20 @@ namespace BeFaster.App.Tests.Solutions
 
             Assert.AreEqual(1, combinations.Count);
         }
+
+        [Test]
+        public void ComputeCombinations()
+        {
+            var testCase = new List<Tuple<IMultiDeal, int>>();
+            testCase.Add(new Tuple<IMultiDeal, int>(new MockMultiDeal(), 2));
+            testCase.Add(new Tuple<IMultiDeal, int>(new MockMultiDeal(), 1));
+
+            var combinations = MultiDealEngine.ComputeCombinations(testCase);
+
+            //AAB BAA AB
+            //CAB ACB BCA CBA
+
+            Assert.AreEqual(1, combinations.Count);
+        }
     }
 }
