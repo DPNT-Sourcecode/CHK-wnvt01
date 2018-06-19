@@ -25,7 +25,7 @@ namespace BeFaster.App.Tests.Solutions
             => CheckoutSolution.Checkout(s);
 
 
-        [TestCase("AAAAAAAA", ExpectedResult = 330)]
+        [TestCase("AAAAAAAAA", ExpectedResult = 330)]
         public int RepeatedManyOffers(string s)
             => CheckoutSolution.Checkout(s);
     }
