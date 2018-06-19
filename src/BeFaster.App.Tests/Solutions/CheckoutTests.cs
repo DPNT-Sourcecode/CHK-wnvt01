@@ -16,12 +16,12 @@ namespace BeFaster.App.Tests.Solutions
             => CheckoutSolution.Checkout(s);
 
         [TestCase("FFF", ExpectedResult = 20)]
-        public int BOGOFTest(string s)
+        public int BTGOFTest(string s)
             => CheckoutSolution.Checkout(s);
 
 
         [TestCase("FFFFFF", ExpectedResult = 40)]
-        public int BogofTwice(string s)
+        public int BTgofTwice(string s)
             => CheckoutSolution.Checkout(s);
 
         [TestCase("AAAAAAAAAAAAAAA", ExpectedResult = 600)]
