@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Solutions\AnyOfTests.cs" />
     <Compile Include="Solutions\CheckoutTests.cs" />
     <Compile Include="Solutions\CombinationTests.cs" />
     <Compile Include="Solutions\SimpleMultiBuyDealTests.cs" />
