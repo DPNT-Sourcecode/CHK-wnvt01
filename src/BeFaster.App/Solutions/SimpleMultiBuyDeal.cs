@@ -65,13 +65,11 @@ namespace BeFaster.App.Solutions
 
         public Tuple<char[], int> Apply(char[] characters)
         {
-            if (characters.Count(y => y == Character) < Quantity)
-                return new Tuple<char[], int>(characters, 0);
+            var aApplied = A.Apply(characters);
+            if (aApplied.Item2 != 0)
+                return aApplied;
 
-            var remainingAfterDeal = characters.Where(y => y == Character).Skip(Quantity).ToArray();
-            var resultingObject = characters.Where(y => y != Character).Concat(remainingAfterDeal).OrderBy(y => y).ToArray();
-
-            return new Tuple<char[], int>(resultingObject, Price);
+            return B.Apply(characters);
         }
 
         public int Saving { get; }

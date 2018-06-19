@@ -39,8 +39,7 @@ namespace BeFaster.App.Solutions
             Catalog.Add('Y', new Product(20));
             Catalog.Add('Z', new Product(21));
             
-            deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
-            deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
+            deals.Add( new TieredMultiBuyDeal(new SimpleMultiBuyDeal(5, 200, 'A'), new SimpleMultiBuyDeal(3, 130, 'A')));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B'));
             deals.Add(new BuyXGetXFreeDeal('F', 2, 1));
