@@ -8,12 +8,14 @@ namespace BeFaster.App.Solutions
         public int Quantity { get; }
         public int Price { get; }
         public char Character { get; }
+        public int Saving { get; }
 
         public SimpleMultiBuyDeal(int quantity, int price, char character)
         {
             Quantity = quantity;
             Price = price;
             Character = character;
+            Saving = quantity * MultiDealEngine.Catalog[character].Price - price;
         }
 
         public int CountNumberOfTimesCanBeApplied(char[] characters)

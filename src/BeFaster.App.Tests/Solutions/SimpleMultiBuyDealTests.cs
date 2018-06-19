@@ -76,7 +76,7 @@ namespace BeFaster.App.Tests.Solutions
         [Test]
         public void TestShouldRemoveAllObjects()
         {
-            var testObj = new MultiBuyRemovalDeal(2,'A', 1,'B', 10);
+            var testObj = new MultiBuyRemovalDeal(2,'A', 1,'B');
 
             var testData = "AAB".ToCharArray();
 
@@ -88,7 +88,7 @@ namespace BeFaster.App.Tests.Solutions
         [Test]
         public void TestShouldStillPriceMultiBuyDeal()
         {
-            var testObj = new MultiBuyRemovalDeal(2, 'A', 1, 'B', 10);
+            var testObj = new MultiBuyRemovalDeal(2, 'A', 1, 'B');
 
             var testData = "AAB".ToCharArray();
 
@@ -105,7 +105,7 @@ namespace BeFaster.App.Tests.Solutions
         [Test]
         public void TestShouldRemoveAllObjects()
         {
-            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1);
 
             var testData = "AAA".ToCharArray();
 
