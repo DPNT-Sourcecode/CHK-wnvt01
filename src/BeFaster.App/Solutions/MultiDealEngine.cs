@@ -61,15 +61,21 @@ namespace BeFaster.App.Solutions
 
             //heaps algorithm -- non-recursive
             var state = Enumerable.Range(0, baseCombination.Count).Select(_ => 0).ToArray();
-            for (var i = 0; i < baseCombination.Count; i++)
+
+            var j = 0;
+
+            do
             {
-                if (state[i] < i)
+                if (state[j] < j)
                 {
-                    currentState = Permute(currentState, state, i);
+                    currentState = Permute(currentState, state, j);
                     resultSet.Add(currentState.ToList());
                 }
- 
-            }
+                else
+                {
+                    state[j] = 0;
+                }
+            } while (j < baseCombination.Count);
 
             return resultSet;
         }
