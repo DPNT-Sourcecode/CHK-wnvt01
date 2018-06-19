@@ -73,6 +73,7 @@
     <Compile Include="Solutions\Product.cs" />
     <Compile Include="Solutions\SimpleMultiBuyDeal.cs" />
     <Compile Include="Solutions\SumSolution.cs" />
+    <Compile Include="Solutions\TieredMultiBuyDeal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
