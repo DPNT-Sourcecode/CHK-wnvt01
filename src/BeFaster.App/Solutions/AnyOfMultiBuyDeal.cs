@@ -35,11 +35,13 @@ namespace BeFaster.App.Solutions
             var i = 0;
             do
             {
-                var runningPrice = prices[i++];
-                runningPrice += prices[i++];
-                runningPrice += prices[i++];
+                var runningPrice = 0;
+                for (var j = 0; j < NumberRequired; j++)
+                {
+                    runningPrice += prices[i++];
+                }
                 saving = runningPrice - Price;
-            } while (i + 2 < prices.Count);
+            } while (i + (NumberRequired - 1) < prices.Count);
 
 
             return saving;
@@ -47,7 +49,28 @@ namespace BeFaster.App.Solutions
 
         public Tuple<char[], int> Apply(char[] characters)
         {
-            throw new NotImplementedException();
+            List<char> prices = new List<char>();
+
+            foreach (var product in Products)
+            {
+                var numberOfProduct = characters.Count(x => x == product);
+                prices.AddRange(Enumerable.Repeat(product, numberOfProduct));
+
+            }
+
+            if (prices.Count < NumberRequired)
+                return new Tuple<char[], int>(characters, 0);
+
+            var caseCharacters = characters.ToArray();
+
+            for (int i = 0; i < NumberRequired; i++)
+            {
+                caseCharacters.Where(x => x == prices[i])
+
+            }
+
+
+
         }
 
         public int Saving { get; }
