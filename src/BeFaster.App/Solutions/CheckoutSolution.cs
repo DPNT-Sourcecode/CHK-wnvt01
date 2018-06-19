@@ -16,6 +16,21 @@ namespace BeFaster.App.Solutions
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B'));
         }
+
+        public static List<Tuple<MultiDeal, int>> FindDeals(char[] skus)
+        {
+            var foundDeals = new List<Tuple<MultiDeal, int>>();
+
+            foreach (var multiDeal in deals)
+            {
+                var possibleApplications = multiDeal.CountNumberOfTimesCanBeApplied(skus);
+
+                if(possibleApplications > 0)
+                    foundDeals.Add(new Tuple<MultiDeal, int>(multiDeal, possibleApplications));
+            }
+
+            return foundDeals;
+        } 
     }
 
     public static class CheckoutSolution
