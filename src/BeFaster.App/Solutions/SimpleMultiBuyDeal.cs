@@ -48,10 +48,19 @@ namespace BeFaster.App.Solutions
 
         public int CalculatePossibleSavings(char[] characters)
         {
-            var ammount = characters.Count(x => A.Character == x);
+            var amount = characters.Count(x => A.Character == x);
 
+            var aApplies = amount / A.Quantity;
 
+            var savingsFromA = A.Saving * aApplies;
 
+            var bAmount = amount - aApplies * A.Quantity;
+
+            var bApplies = bAmount / B.Quantity;
+
+            var savingsFromB = B.Saving * bApplies;
+
+            return savingsFromA + savingsFromB;
         }
 
         public Tuple<char[], int> Apply(char[] characters)
