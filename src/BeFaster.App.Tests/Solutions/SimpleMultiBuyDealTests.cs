@@ -69,4 +69,20 @@ namespace BeFaster.App.Tests.Solutions
             Assert.AreEqual(0, count);
         }
     }
+
+    [TestFixture]
+    public class MultiDealRemovalTests
+    {
+        [Test]
+        public void TestShouldRemoveAllObjects()
+        {
+            var testObj = new MultiBuyRemovalDeal(2,'A', 1,'B');
+
+            var testData = "AAB".ToCharArray();
+
+            var result = testObj.Apply(testData);
+
+            Assert.AreEqual(0, result.Item1.Length);
+        }
+    }
 }
