@@ -47,11 +47,11 @@ namespace BeFaster.App.Solutions
                     Enumerable.Range(0, possibleDeals[0].Item2).Select(x => 0).ToList()
                 };
 
-            
+            var baseCombination = new List<int>();
 
             for (int i = 0; i < possibleDeals.Count; i++)
             {
-                
+                baseCombination.AddRange(Enumerable.Range(0, possibleDeals[i].Item2).Select(_ => i));
             }
 
 
