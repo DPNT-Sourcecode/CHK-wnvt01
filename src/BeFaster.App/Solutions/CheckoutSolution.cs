@@ -19,7 +19,7 @@ namespace BeFaster.App.Solutions
                     return MultiDealEngine.SimplePricing(productsPurchased);
                 }
 
-                var dealsOrderedInValue =  foundPossibleDeals.OrderByDescending(x => x.Item1.Saving).ToList();
+                var dealsOrderedInValue =  foundPossibleDeals.OrderByDescending(x => x.Item2).ToList();
 
                 return MultiDealEngine.ApplyHighValueDealsInOrder(dealsOrderedInValue, productsPurchased);
 

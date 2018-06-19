@@ -25,7 +25,7 @@ namespace BeFaster.App.Solutions
 
         public int CalculatePossibleSavings(char[] characters)
         {
-            return characters.Count(y => y == AddingCharacter) / AddingQuantity;
+            return (characters.Count(y => y == AddingCharacter) / AddingQuantity) * Saving;
         }
 
         public Tuple<char[], int> Apply(char[] characters)
