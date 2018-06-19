@@ -18,7 +18,18 @@ namespace BeFaster.App.Solutions
 
         public int CalculatePossibleSavings(char[] characters)
         {
-            throw new NotImplementedException();
+            var saving = 0;
+
+            int i = 0;
+
+            int[] buffer = new int[3];
+
+            foreach (var product in Products)
+            {
+                
+            }
+
+            return saving;
         }
 
         public Tuple<char[], int> Apply(char[] characters)
