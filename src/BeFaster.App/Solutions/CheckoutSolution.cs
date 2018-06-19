@@ -30,7 +30,12 @@ namespace BeFaster.App.Solutions
             }
 
             return foundDeals;
-        } 
+        }
+
+        public static List<List<MultiDeal>> ComputeCombinations(List<Tuple<MultiDeal, int>> possibleDeals)
+        {
+            return new List<List<MultiDeal>>();
+        }
     }
 
     public static class CheckoutSolution
