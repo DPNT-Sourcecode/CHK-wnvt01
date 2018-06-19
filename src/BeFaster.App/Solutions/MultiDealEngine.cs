@@ -171,5 +171,31 @@ namespace BeFaster.App.Solutions
 
             return total;
         }
+
+        public static int ApplyHighValueDealsInOrder(List<Tuple<IMultiDeal, int>> dealsOrderedInValue, char[] productsPurchased)
+        {
+            var caseProducts = new char[productsPurchased.Length];
+            productsPurchased.CopyTo(caseProducts, 0);
+            var total = 0;
+
+            foreach (var deal in dealsOrderedInValue)
+            {
+                bool tryAgain = true;
+                while (tryAgain)
+                {
+                    var res = deal.Item1.Apply(caseProducts);
+                    caseProducts = res.Item1;
+                    total += res.Item2;
+                    tryAgain = res.Item2 != 0;
+                }
+            }
+
+            foreach (var product in caseProducts)
+            {
+                total += Catalog[product].Price;
+            }
+
+            return total;
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace BeFaster.App.Tests.Solutions
         {
             throw new NotImplementedException();
         }
+
+        public int Saving { get; }
     }
 
     [TestFixture]

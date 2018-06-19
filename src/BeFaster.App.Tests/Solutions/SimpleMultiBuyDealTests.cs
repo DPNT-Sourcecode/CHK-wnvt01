@@ -94,7 +94,7 @@ namespace BeFaster.App.Tests.Solutions
 
             var result = testObj.Apply(testData);
 
-            Assert.AreEqual(10, result.Item2);
+            Assert.AreEqual(100, result.Item2);
         }
     }
 
@@ -117,19 +117,19 @@ namespace BeFaster.App.Tests.Solutions
         [Test]
         public void TestShouldStillPriceMultiBuyDeal()
         {
-            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1);
 
             var testData = "AAA".ToCharArray();
 
             var result = testObj.Apply(testData);
 
-            Assert.AreEqual(10, result.Item2);
+            Assert.AreEqual(100, result.Item2);
         }
 
         [Test]
         public void TestShouldRemoveAllObjectsTwice()
         {
-            var testObj = new BuyXGetXFreeDeal('A', 2, 1, 10);
+            var testObj = new BuyXGetXFreeDeal('A', 2, 1);
 
             var testData = "AAAAAA".ToCharArray();
 
