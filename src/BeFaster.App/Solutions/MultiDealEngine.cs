@@ -143,9 +143,14 @@ namespace BeFaster.App.Solutions
 
             foreach (var dealIndex in dealIndexes)
             {
-                var res = availableDeals[dealIndex].Item1.Apply(caseProducts);
-                caseProducts = res.Item1;
-                total += res.Item2;
+                bool tryAgain = true;
+                while (tryAgain)
+                {
+                    var res = availableDeals[dealIndex].Item1.Apply(caseProducts);
+                    caseProducts = res.Item1;
+                    total += res.Item2;
+                    tryAgain = res.Item2 != 0;
+                }
             }
 
             foreach (var product in caseProducts)
