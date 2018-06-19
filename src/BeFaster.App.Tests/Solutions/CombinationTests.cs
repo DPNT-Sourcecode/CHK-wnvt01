@@ -50,20 +50,5 @@ namespace BeFaster.App.Tests.Solutions
             Assert.AreEqual(1, combinations.Count);
         }
 
-        [Test]
-        public void SillyTest()
-        {
-            var array = new[] {0, 1};
-
-            var list = array.ToList();
-
-            var temp = array[0];
-
-            array[0] = array[1];
-
-            array[1] = temp;
-
-
-        }
     }
 }

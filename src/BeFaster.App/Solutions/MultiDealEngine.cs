@@ -68,12 +68,21 @@ namespace BeFaster.App.Solutions
             {
                 if (state[j] < j)
                 {
-                    currentState = Permute(currentState, state, j);
-                    resultSet.Add(currentState.ToList());
+                    if (j % 2 == 0)
+                    {
+                        currentState = Permute(currentState, state, j);
+                        resultSet.Add(currentState.ToList());
+                    }
+                    else
+                    {
+
+                    }
+
                 }
                 else
                 {
                     state[j] = 0;
+                    j++;
                 }
             } while (j < baseCombination.Count);
 
