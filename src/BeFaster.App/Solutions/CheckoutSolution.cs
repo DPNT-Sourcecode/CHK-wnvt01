@@ -7,25 +7,24 @@ namespace BeFaster.App.Solutions
 {
     public static class CheckoutSolution
     {
-        private static Dictionary<string, Product> Catalog;
+        private static Dictionary<char, Product> Catalog;
 
         static CheckoutSolution()
         {
-            Catalog = new Dictionary<string, Product>();
+            Catalog = new Dictionary<char, Product>();
 
-            Catalog.Add("A", new Product(50, new MultiBuy(3, 130)));
-            Catalog.Add("B", new Product(30, new MultiBuy(2, 45)));
-            Catalog.Add("C", new Product(20));
-            Catalog.Add("D", new Product(15));
+            Catalog.Add('A', new Product(50, new MultiBuy(3, 130)));
+            Catalog.Add('B', new Product(30, new MultiBuy(2, 45)));
+            Catalog.Add('C', new Product(20));
+            Catalog.Add('D', new Product(15));
         }
 
         public static int Checkout(string skus)
         {
             try
             {
-                var delimiters = new[] {","};
 
-                var productsPurchased = skus.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                var productsPurchased = skus.ToCharArray();
 
                 var distinctProducts = productsPurchased.Distinct();
 
