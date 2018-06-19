@@ -17,17 +17,17 @@ namespace BeFaster.App.Solutions
         }
 
         public override int CountNumberOfTimesCanBeApplied(char[] characters)
-            => characters.Count(y => y == character) / quantity;
+            => characters.Count(y => y == Character) / Quantity;
 
         public override Tuple<char[], int> Apply(char[] characters)
         {
-            if (characters.Count(y => y == character) < quantity)
+            if (characters.Count(y => y == Character) < Quantity)
                 return new Tuple<char[], int>(characters, 0);
 
-            var remainingAs = characters.Where(y => y == character).Skip(quantity).ToArray();
-            var resultingObject = characters.Where(y => y != character).Concat(remainingAs).OrderBy(y => y).ToArray();
+            var remainingAs = characters.Where(y => y == Character).Skip(Quantity).ToArray();
+            var resultingObject = characters.Where(y => y != Character).Concat(remainingAs).OrderBy(y => y).ToArray();
 
-            return new Tuple<char[], int>(resultingObject, price);
+            return new Tuple<char[], int>(resultingObject, Price);
         }
     }
 }
