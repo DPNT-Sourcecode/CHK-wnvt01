@@ -18,8 +18,8 @@ namespace BeFaster.App.Solutions
             Saving = quantity * MultiDealEngine.Catalog[character].Price - price;
         }
 
-        public int CountNumberOfTimesCanBeApplied(char[] characters)
-            => characters.Count(y => y == Character) / Quantity;
+        public int CalculatePossibleSavings(char[] characters)
+            => (characters.Count(y => y == Character) / Quantity) * Saving; 
 
         public Tuple<char[], int> Apply(char[] characters)
         {

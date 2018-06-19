@@ -64,10 +64,10 @@ namespace BeFaster.App.Solutions
 
             foreach (var multiDeal in deals)
             {
-                var possibleApplications = multiDeal.CountNumberOfTimesCanBeApplied(skus);
+                var possibleSavings = multiDeal.CalculatePossibleSavings(skus);
 
-                if(possibleApplications > 0)
-                    foundDeals.Add(new Tuple<IMultiDeal, int>(multiDeal, possibleApplications));
+                if(possibleSavings > 0)
+                    foundDeals.Add(new Tuple<IMultiDeal, int>(multiDeal, possibleSavings));
             }
 
             return foundDeals;

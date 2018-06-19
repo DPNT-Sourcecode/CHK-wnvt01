@@ -10,7 +10,7 @@ namespace BeFaster.App.Tests.Solutions
 {
     internal class MockMultiDeal : IMultiDeal
     {
-        public int CountNumberOfTimesCanBeApplied(char[] characters)
+        public int CalculatePossibleSavings(char[] characters)
         {
             throw new NotImplementedException();
         }

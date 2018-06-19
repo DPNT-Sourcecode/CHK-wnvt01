@@ -4,7 +4,7 @@ namespace BeFaster.App.Solutions
 {
     public interface IMultiDeal
     {
-        int CountNumberOfTimesCanBeApplied(char[] characters);
+        int CalculatePossibleSavings(char[] characters);
         Tuple<char[], int> Apply(char[] characters);
         int Saving { get; }
     }

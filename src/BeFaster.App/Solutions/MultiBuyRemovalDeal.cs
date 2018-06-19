@@ -23,7 +23,7 @@ namespace BeFaster.App.Solutions
         }
 
 
-        public int CountNumberOfTimesCanBeApplied(char[] characters)
+        public int CalculatePossibleSavings(char[] characters)
         {
             return characters.Count(y => y == AddingCharacter) / AddingQuantity;
         }

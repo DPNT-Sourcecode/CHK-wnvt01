@@ -6,9 +6,10 @@ namespace BeFaster.App.Solutions
     {
         public AnyOfMultiBuyDeal(int i, int price, params char[] c)
         {
+
         }
 
-        public int CountNumberOfTimesCanBeApplied(char[] characters)
+        public int CalculatePossibleSavings(char[] characters)
         {
             throw new NotImplementedException();
         }

@@ -13,7 +13,7 @@ namespace BeFaster.App.Tests.Solutions
 
             var testData = "AAAA".ToCharArray();
 
-            var count = testObj.CountNumberOfTimesCanBeApplied(testData);
+            var count = testObj.CalculatePossibleSavings(testData);
 
             Assert.AreEqual(1, count);
         }
@@ -64,7 +64,7 @@ namespace BeFaster.App.Tests.Solutions
 
             var testData = "AA".ToCharArray();
 
-            var count = testObj.CountNumberOfTimesCanBeApplied(testData);
+            var count = testObj.CalculatePossibleSavings(testData);
 
             Assert.AreEqual(0, count);
         }

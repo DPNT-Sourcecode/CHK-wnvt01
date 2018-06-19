@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SendCommandToServer.cs" />
+    <Compile Include="Solutions\AnyOfMultiBuyDeal.cs" />
     <Compile Include="Solutions\BuyXGetXFreeDeal.cs" />
     <Compile Include="Solutions\CheckoutSolution.cs" />
     <Compile Include="Solutions\FizzBuzzSolution.cs" />
