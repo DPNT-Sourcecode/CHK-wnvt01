@@ -87,7 +87,7 @@ namespace BeFaster.App.Solutions
                 }
             } while (j < baseCombination.Count);
 
-            return resultSet;
+            return resultSet.Distinct(new IntArrayComparison()).ToList();
         }
 
         public static void Swap(int l, int r, int[] array)
@@ -117,6 +117,19 @@ namespace BeFaster.App.Solutions
             }
 
             return total;
+        }
+    }
+
+    public class IntArrayComparison : IEqualityComparer<List<int>>
+    {
+        public bool Equals(List<int> x, List<int> y)
+        {
+            
+        }
+
+        public int GetHashCode(List<int> obj)
+        {
+            return obj.GetHashCode();
         }
     }
 }
