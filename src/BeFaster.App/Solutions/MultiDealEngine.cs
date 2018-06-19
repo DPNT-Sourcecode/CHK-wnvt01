@@ -85,10 +85,7 @@ namespace BeFaster.App.Solutions
 
             var baseCombination = new List<int>();
 
-            for (var i = 0; i < possibleDeals.Count; i++)
-            {
-                baseCombination.AddRange(Enumerable.Range(0, possibleDeals[i].Item2).Select(_ => i));
-            }
+            baseCombination.AddRange(Enumerable.Range(0, possibleDeals.Count));
 
             var resultSet = new List<List<int>>();
 
