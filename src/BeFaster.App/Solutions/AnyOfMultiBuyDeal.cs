@@ -65,7 +65,7 @@ namespace BeFaster.App.Solutions
             for (int i = 0; i < NumberRequired; i++)
             {
                 var remainingAfterDeal = caseCharacters.Where(y => y == dealCharacters[i]).Skip(1).ToArray();
-                caseCharacters = characters.Where(y => y != dealCharacters[i]).Concat(remainingAfterDeal).OrderBy(y => y).ToArray();
+                caseCharacters = caseCharacters.Where(y => y != dealCharacters[i]).Concat(remainingAfterDeal).OrderBy(y => y).ToArray();
             }
 
             return new Tuple<char[], int>(caseCharacters, Price);
