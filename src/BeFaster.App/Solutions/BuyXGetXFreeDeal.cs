@@ -9,13 +9,15 @@ namespace BeFaster.App.Solutions
         public char Character { get; }
         public int RemovesQuantity { get; }
         public int Price { get; }
+        public int Saving { get; }
 
-        public BuyXGetXFreeDeal(char character, int addingQuantity,  int removesQuantity, int price)
+        public BuyXGetXFreeDeal(char character, int addingQuantity,  int removesQuantity)
         {
             AddingQuantity = addingQuantity;
             Character = character;
             RemovesQuantity = removesQuantity;
-            Price = price;
+            Price = MultiDealEngine.Catalog[character].Price * addingQuantity;
+            Saving = RemovesQuantity * MultiDealEngine.Catalog[character].Price;
         }
 
 

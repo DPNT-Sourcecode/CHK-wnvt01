@@ -6,5 +6,6 @@ namespace BeFaster.App.Solutions
     {
         int CountNumberOfTimesCanBeApplied(char[] characters);
         Tuple<char[], int> Apply(char[] characters);
+        int Saving { get; }
     }
 }
