@@ -18,12 +18,42 @@ namespace BeFaster.App.Solutions
             Catalog.Add('D', new Product(15));
             Catalog.Add('E', new Product(40));
             Catalog.Add('F', new Product(10));
+            Catalog.Add('G', new Product(20));
+            Catalog.Add('H', new Product(10));
+            Catalog.Add('I', new Product(35));
+            Catalog.Add('j', new Product(60));
+            Catalog.Add('L', new Product(90));
+            Catalog.Add('M', new Product(15));
+            Catalog.Add('N', new Product(40));
+            Catalog.Add('O', new Product(10));
+            Catalog.Add('P', new Product(50));
+            Catalog.Add('Q', new Product(30));
+            Catalog.Add('R', new Product(50));
+            Catalog.Add('S', new Product(30));
+            Catalog.Add('T', new Product(20));
+            Catalog.Add('U', new Product(40));
+            Catalog.Add('V', new Product(50));
+            Catalog.Add('W', new Product(20));
+            Catalog.Add('X', new Product(90));
+            Catalog.Add('Y', new Product(10));
+            Catalog.Add('Z', new Product(50));
+
 
             deals.Add(new SimpleMultiBuyDeal(3, 130, 'A'));
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B', 2 * Catalog['E'].Price));
             deals.Add(new BuyXGetXFreeDeal('F', 2, 1, 2 * Catalog['F'].Price));
+            deals.Add(new SimpleMultiBuyDeal(5, 45, 'H'));
+            deals.Add(new SimpleMultiBuyDeal(10, 80, 'H'));
+            deals.Add(new SimpleMultiBuyDeal(2, 150, 'K'));
+            deals.Add(new MultiBuyRemovalDeal(3, 'N', 1, 'M', 3 * Catalog['N'].Price));
+            deals.Add(new SimpleMultiBuyDeal(5, 200, 'P'));
+            deals.Add(new SimpleMultiBuyDeal(3, 80, 'Q'));
+            deals.Add(new MultiBuyRemovalDeal(3, 'R', 1, 'Q', 3 * Catalog['R'].Price));
+            deals.Add(new BuyXGetXFreeDeal('U', 3, 1, 3 * Catalog['U'].Price));
+            deals.Add(new SimpleMultiBuyDeal(2, 90, 'V'));
+            deals.Add(new SimpleMultiBuyDeal(3, 130, 'V'));
         }
 
         public static List<Tuple<IMultiDeal, int>> FindDeals(char[] skus)
