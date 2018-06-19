@@ -6,7 +6,7 @@ namespace BeFaster.App.Solutions
     public static class MultiDealEngine
     {
         static List<MultiDeal> deals = new List<MultiDeal>();
-        private static Dictionary<char, Product> Catalog;
+        private static Dictionary<char, Product> Catalog = new Dictionary<char, Product>();
 
         static MultiDealEngine()
         {
@@ -14,7 +14,7 @@ namespace BeFaster.App.Solutions
             deals.Add(new SimpleMultiBuyDeal(5, 200, 'A'));
             deals.Add(new SimpleMultiBuyDeal(2, 45, 'B'));
             deals.Add(new MultiBuyRemovalDeal(2,'E', 1,'B'));
-            Catalog = new Dictionary<char, Product>();
+
             Catalog.Add('A', new Product(50));
             Catalog.Add('B', new Product(30));
             Catalog.Add('C', new Product(20));
@@ -39,6 +39,7 @@ namespace BeFaster.App.Solutions
 
         public static List<List<MultiDeal>> ComputeCombinations(List<Tuple<MultiDeal, int>> possibleDeals)
         {
+
             return new List<List<MultiDeal>>();
         }
 
